@@ -25,25 +25,8 @@ The algorithm for fitting a random forest is below:
 
 ### Decision Trees
 
-```
-class DecisionNode:
-    def __init__(self, col, split, lchild, rchild):
-        self.col = col
-        self.split = split
-        self.lchild = lchild
-        self.rchild = rchild
-    def predict(self, x_test):
-        ...
-    def leaf(self, x_test):
-        """
-        Given a single test record, x_test, return the leaf node reached by running
-        it down the tree starting at this node.  This is just like prediction,
-        except we return the decision tree leaf rather than the prediction from that leaf.
-        """
-        ...
-```
 
-I went with a recursion based approach in this implementation, and it looks like:
+I went with a recursion based approach in this implementation, which looks like:
 
 <img src="images/dtreefit.png" width="50%">
 
