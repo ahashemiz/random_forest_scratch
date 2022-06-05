@@ -31,7 +31,7 @@ I went with a recursion based approach in this implementation, which looks like:
 
 <img src="images/dtreefit.png" width="50%">
 
-For fitting conventional decision trees, `bestsplit()` exhaustively scans all available features and the feature values looking for the optimal variable/split combination. Optimal in this case depends on whether we are looking at a classification or regression problem. For classification, minimizing gini impurity or entropy are typical approaches. For regression, MSE is a classic choice as well. This implementation allows the user to specify whatever loss function they'd like.
+For fitting conventional decision trees, `bestsplit()` exhaustively scans all available features and the feature values looking for the optimal variable/split combination. Optimal in this case depends on whether we are looking at a classification or regression problem. For classification, minimizing gini impurity or entropy are typical approaches. For regression, MSE is one such classic choice. This implementation allows the user to specify whatever loss function they'd like.
 
 To reduce overfitting and promote independence amongst trees, each split should pick from a random subset of the features; the actual subset size is the hyperparameter `max_features`.  
 
