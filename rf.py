@@ -13,7 +13,7 @@ def bootstrap(X, y):
 	return X_train, y_train, mask
 
 
-class RandomForest621:
+class RandomForest:
 	def __init__(self, n_estimators=10, oob_score=False):
 		self.n_estimators = n_estimators
 		self.oob_score = oob_score
@@ -32,7 +32,7 @@ class RandomForest621:
 		if self.name == 'regressor':
 			for _ in range(self.n_estimators):
 				X_train, y_train, oob_mask = bootstrap(X, y)
-				t = RegressionTree621(min_samples_leaf=self.min_samples_leaf, max_features = self.max_features)
+				t = RegressionTree(min_samples_leaf=self.min_samples_leaf, max_features = self.max_features)
 				t.fit(X_train, y_train)
 				self.trees.append(t)
 				if self.oob_score:
@@ -40,7 +40,7 @@ class RandomForest621:
 		else:
 			for _ in range(self.n_estimators):
 				X_train, y_train, oob_mask = bootstrap(X, y)
-				t = ClassifierTree621(min_samples_leaf=self.min_samples_leaf, max_features = self.max_features)
+				t = ClassifierTree(min_samples_leaf=self.min_samples_leaf, max_features = self.max_features)
 				t.fit(X_train, y_train)
 				self.trees.append(t)
 				if self.oob_score:
@@ -49,7 +49,7 @@ class RandomForest621:
 			self.oob_score_ = self.compute_oob_score(X, y, oob_indices)
 
 
-class RandomForestRegressor621(RandomForest621):
+class RandomForestRegressor(RandomForest):
 	def __init__(self, n_estimators=10, min_samples_leaf=3, max_features=0.3, oob_score=False):
 		super().__init__(n_estimators, oob_score=oob_score)
 		self.min_samples_leaf = min_samples_leaf
@@ -102,7 +102,7 @@ class RandomForestRegressor621(RandomForest621):
 		return r2_score(y[all_unique_oob_idx], oob_avg_preds)
 
 
-class RandomForestClassifier621(RandomForest621):
+class RandomForestClassifier(RandomForest):
 	def __init__(self, n_estimators=10, min_samples_leaf=3, max_features=0.3, oob_score=False):
 		super().__init__(n_estimators, oob_score=oob_score)
 		self.min_samples_leaf = min_samples_leaf
