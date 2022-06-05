@@ -1,5 +1,7 @@
 #  Random Forests
 
+<img src="images/rf_preview.jpg" width="60%">
+
 ## Goal
 
 This project is part of my series of coding up some of the more classical machine learning algorithms from scratch! I find implementing these commonly used ML algorithms is really useful for understanding the ins-and-outs of how they really work, from input data to prediction output. 
