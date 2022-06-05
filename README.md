@@ -1,6 +1,8 @@
 #  Random Forests
 
-<img src="images/rf_preview.jpg" align="center" width="60%">
+<p align="center">
+  <img width="460" height="300" src="images/rf_preview.jpg">
+</p>
 
 ## Goal
 
