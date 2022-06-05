@@ -75,4 +75,4 @@ Generally, a bootstrapped sample is roughly 2/3 of the training records for any 
 
 ## Thanks for reading!
 
-Hope this little readme was helpful! If you'd like to see more ML algorithms implemented from scratch or leave any feedback/comments, feel free to check out the rest of my portfolio @ ahashemiz.github.io
+Hope this little readme was helpful! If you'd like to see more ML algorithms implemented from scratch or leave any feedback/comments, feel free to check out the rest of my <a href="ahashemiz.github.io" target="_blank">portfolio</a> or message me on <a href="https://linkedin.com/in/arman-hashemizadeh" target="_blank">linkedin</a>
