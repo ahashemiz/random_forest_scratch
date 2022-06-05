@@ -2,9 +2,11 @@
 
 ## Goal
 
-The goal of this project is to code up the random forest algorithm from scratch with accuracy comparable to sklearn. 
+This project is part of my series of coding up some of the more classical machine learning algorithms from scratch! I find implementing these commonly used ML algorithms is really useful for understanding the ins-and-outs of how they really work, from input data to prediction output. 
 
-This from-scratch implementation includes support for out-of-bag (OOB) validation error estimation. 
+The goal of this particular project is to code up the random forest algorithm from scratch with accuracy comparable to sklearn. 
+
+As an aside, this from-scratch implementation includes support for out-of-bag (OOB) validation error estimation. 
 
 
 ## Description
@@ -69,7 +71,7 @@ Method `compute_oob_score()` is a helper method used to encapsulate OOB validati
 
 Below is a class-based UML diagram of rf.py:
 
-<img src="images/uml_class_diagram.jpeg" width="60%">
+<img src="images/uml_class_diagram.jpg" width="60%">
 
 ## Out-of-bag (OOB) error
 
