@@ -13,7 +13,9 @@ As an aside, this from-scratch implementation includes support for out-of-bag (O
 
 Classification and regression decision trees excel at fitting a model to training data. However, decision trees have a tendency to overfit, meaning that they may not generalize well to previously-unseen test data. To improve generality and combat overfitting, random forests use a collection of decision trees that have been weakened to make them more independent. Essentially, we are trading a bit of accuracy for a much greater improvement to generality. 
 
-Random forests don't feed all data to every decision tree in its collection due to a technique known as bootstrapping, which involves resampling the data with replacement. Each tree is trained on a bootstrapped subset of the original training data. To increase independence further, RFs can occasionally drop some of the available features during training. In this implementation, decision node splitting will be limited to considering a random selection of features of size `max_features`. Naturally, both bootstrapping and setting a maximum features per split will introduce noise into the predictions of the individual decision trees. But, averaging the results of these weakened tree estimators squeezes the noise back down, giving us close to the best of both worlds!
+Random forests don't feed all data to every decision tree in its collection due to a technique known as bootstrapping, which involves resampling the data with replacement. Each tree is trained on a bootstrapped subset of the original training data. To increase independence further, RFs can occasionally drop some of the available features during training. 
+
+In this implementation, decision node splitting will be limited to considering a random selection of features of size `max_features`. Naturally, both bootstrapping and setting a maximum features per split will introduce noise into the predictions of the individual decision trees. But, averaging the results of these weakened tree estimators squeezes the noise back down, giving us close to the best of both worlds!
 
 ### Bootstrapping
 
@@ -23,31 +25,15 @@ The algorithm for fitting a random forest is below:
 
 <img src="images/fit.png" width="50%">
 
-### Decision Trees
+### RF Fitting
 
-```
-class DecisionNode:
-    def __init__(self, col, split, lchild, rchild):
-        self.col = col
-        self.split = split
-        self.lchild = lchild
-        self.rchild = rchild
-    def predict(self, x_test):
-        ...
-    def leaf(self, x_test):
-        """
-        Given a single test record, x_test, return the leaf node reached by running
-        it down the tree starting at this node.  This is just like prediction,
-        except we return the decision tree leaf rather than the prediction from that leaf.
-        """
-        ...
-```
-
-I went with a recursion based approach in this implementation, and it looks like:
+I went with a recursion based approach in this implementation, which looks like:
 
 <img src="images/dtreefit.png" width="50%">
 
-For fitting conventional decision trees, `bestsplit()` exhaustively scans all available features and the feature values looking for the optimal variable/split combination. To reduce overfitting and promote independence amongst trees, each split should pick from a random subset of the features; the actual subset size is the hyperparameter `max_features`.  
+For fitting conventional decision trees, `bestsplit()` exhaustively scans all available features and the feature values looking for the optimal variable/split combination. Optimal in this case depends on whether we are looking at a classification or regression problem. For classification, minimizing gini impurity or entropy are typical approaches. For regression, MSE is one such classic choice. This implementation allows the user to specify whatever loss function they'd like.
+
+To reduce overfitting and promote independence amongst trees, each split should pick from a random subset of the features; the actual subset size is the hyperparameter `max_features`.  
 
 <img src="images/bestsplit.png" width="60%">
 
