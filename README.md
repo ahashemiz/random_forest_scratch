@@ -23,7 +23,7 @@ In this implementation, decision node splitting will be limited to considering a
 
 ### Bootstrapping
 
-As briefly mentioned above, the purpose of bootstrapping for random forests is to train a number of decision trees that are as independent and identically distributed as possible by using different but similar training sets.  Each tree trains on a slightly different subset of the training data. Bootstrapping, in theory, pulls from the underlying distribution that generated the data to generate another independent sample. In practice, bootstrapping about 2/3 of the training data and leaving 1/3 for "out of bag" (OOB) validation is a good rule of thumb or starting point. 
+As briefly mentioned above, the purpose of bootstrapping for random forests is to train a number of decision trees that are as independent and identically distributed as possible by using different but similar training sets.  Each tree trains on a slightly different subset of the training data. Bootstrapping, in theory, pulls from the underlying distribution that generated the data to generate another independent sample. 
 
 The algorithm for fitting a random forest is below:
 
