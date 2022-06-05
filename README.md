@@ -1,7 +1,7 @@
 #  Random Forests
 
 <p align="center">
-  <img src="images/rf_preview.jpg">
+  <img width="500" height="500" src="images/rf_preview.jpg">
 </p>
 
 ## Goal
