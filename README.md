@@ -31,7 +31,7 @@ The algorithm for fitting a random forest is below:
 
 ### RF Fitting
 
-I went with a recursion based approach in this implementation, which looks like:
+I went with a recursive approach in this implementation, which looks like:
 
 <img src="images/dtreefit.png" width="50%">
 
