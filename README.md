@@ -73,3 +73,6 @@ Generally, a bootstrapped sample is roughly 2/3 of the training records for any 
 
 <img src="images/oob-score-class.png" width="60%">
 
+## Thanks for reading!
+
+Hope this little readme was helpful! If you'd like to see more ML algorithms implemented from scratch or leave any feedback/comments, feel free to check out the rest of my portfolio @ ahashemiz.github.io
